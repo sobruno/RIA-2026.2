@@ -1,3 +1,8 @@
-const arrei :number[] = [8, 3, 9, 5, 6, 12];
+export function Filtrar(a : number[]){
+    let resultado : number[] = [];
+    resultado = a.filter(e => e%2 == 0);
+    return resultado;
+} 
 
-console.log(arrei.filter(e => e%2 == 0))
+const arrei :number[] = [8, 3, 9, 5, 6, 12];
+console.log(Filtrar(arrei));

@@ -1,16 +1,20 @@
-const arrei : number[] = [3, 5, 7, 3, 8, 9, 1];
-
 // Usando for
 export function aoQdr (a : number[]){
+    let resultado : number[] = [];
     for(let i = 0; i<a.length; i++){
-        console.log(a[i] * a[i]);
+        resultado[i] = a[i] * a[i];
     }
+
+    return resultado;
 }
 
 // Usando forEach
 export function aoQdr2 (a : number[]){
-        a.forEach(e => console.log(e*e));
+    let resultado : number[] = [];
+    a.forEach(e => resultado.push(e*e));
+    return resultado;
 }
 
-aoQdr(arrei);
-aoQdr2(arrei);
+const arrei : number[] = [3, 5, 7, 3, 8, 9, 1];
+console.log(aoQdr(arrei));
+console.log(aoQdr2(arrei));

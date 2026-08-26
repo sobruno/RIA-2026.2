@@ -1,3 +1,8 @@
-const arrei2 : string[] = ['Arrays', 'com', 'TypeScript'];
+export function Concatena(a : string[]){
+    let resultado : string[] = [];
+    resultado = arrei2.join(' ');
+    return resultado;
+} 
 
-console.log(arrei2.join(' '));
+const arrei2 : string[] = ['Arrays', 'com', 'TypeScript'];
+console.log(Concatena(arrei2));
