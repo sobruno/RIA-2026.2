@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@layer base {
+	body {
+		min-width: 320px;
+		margin: 0;
+		background: #f3f5f2;
+		color: #17241d;
+		font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+	}
+
+	button,
+	input,
+	select {
+		font: inherit;
+	}
+}

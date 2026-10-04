@@ -1,0 +1,22 @@
+:host {
+  display: block;
+}
+
+:host ::ng-deep .roster-card {
+  display: block;
+  border: 1px solid #dfe6df;
+  border-radius: 6px;
+  background: #fbfcfa;
+  box-shadow: none;
+}
+
+:host ::ng-deep .roster-card .p-card-body {
+  color:black;
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  :host ::ng-deep .roster-card .p-card-body {
+    padding: 1.25rem;
+  }
+}
