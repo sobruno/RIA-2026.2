@@ -9,7 +9,9 @@ Aplicação de estudo em Angular 22 para montar a seleção e administrar o elen
 
 ## Como executar
 
-Abra dois terminais na pasta `Escala_Selecao`.
+Abra dois terminais na pasta `Escala_Selecao`
+Ou
+Utilize o `Docker compose`.
 
 ### Docker Compose
 
@@ -23,7 +25,9 @@ O frontend ficará em `http://localhost:4200` e o backend em `http://localhost:3
 
 O compose usa uma chave JWT local para facilitar estudos; defina `JWT_SECRET` no ambiente antes de subir o compose se for usar fora da máquina local.
 
-### Backend
+### Dois terminais
+
+#### Backend
 
 ```powershell
 cd backend
@@ -35,7 +39,7 @@ O servidor fica em `http://localhost:3000`. Os jogadores iniciais são carregado
 
 Para produção, defina `JWT_SECRET` com uma chave própria e opcionalmente ajuste `PORT` e `FRONTEND_URL`. No PowerShell, por exemplo, use `$env:JWT_SECRET="uma-chave-segura"` antes de iniciar a API. `backend/.env.example` é apenas um modelo de configuração; os scripts não carregam arquivos `.env` automaticamente.
 
-### Frontend
+#### Frontend
 
 Na raiz da pasta `Escala_Selecao`:
 
