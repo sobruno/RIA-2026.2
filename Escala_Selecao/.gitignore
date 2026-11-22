@@ -9,8 +9,15 @@
 
 # Node
 /node_modules
+/backend/node_modules
+/backend/dist
 npm-debug.log
 yarn-error.log
+
+# Environment variables (keep shareable templates)
+.env
+.env.*
+!.env.example
 
 # IDEs and editors
 .idea/

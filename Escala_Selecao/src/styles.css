@@ -15,3 +15,44 @@
 		font: inherit;
 	}
 }
+
+.jogador-modal.p-dialog {
+	color-scheme: light;
+	border: 1px solid #dfe6df;
+	background: #fff;
+	color: #17241d;
+}
+
+.jogador-modal .p-dialog-header,
+.jogador-modal .p-dialog-content {
+	background: #fff;
+	color: #17241d;
+}
+
+.jogador-modal .p-dialog-header {
+	border-bottom: 1px solid #e2e8e1;
+}
+
+.jogador-modal .p-dialog-header .p-dialog-title {
+	color: #17241d;
+}
+
+.jogador-modal .p-dialog-header-close {
+	color: #65736a;
+}
+
+.jogador-modal .p-dialog-header-close:hover {
+	background: #f3f5f2;
+	color: #17241d;
+}
+
+.jogador-modal .p-button:not(.p-button-secondary) {
+	border-color: #267045;
+	background: #267045;
+	color: #fff;
+}
+
+.jogador-modal .p-button:not(.p-button-secondary):enabled:hover {
+	border-color: #1f5a38;
+	background: #1f5a38;
+}

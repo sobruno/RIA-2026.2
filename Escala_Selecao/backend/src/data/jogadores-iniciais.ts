@@ -1,0 +1,38 @@
+import { Jogador } from '../models/jogador';
+
+// Esta lista é a fonte de cada sessão nova e nunca é alterada pelas rotas CRUD.
+export const JOGADORES_INICIAIS: Jogador[] = [
+  // Goleiros
+  { id: 1, nome: 'Bento', numeroCamisa: 1, dataNascimento: '1999-06-14', titular: false, posicao: 'GOL', clube: 'Al-Nassr' },
+  { id: 2, nome: 'Lucas Perri', numeroCamisa: 12, dataNascimento: '1997-12-10', titular: false, posicao: 'GOL', clube: 'Torino' },
+  { id: 3, nome: 'Pedro Morisco', numeroCamisa: 23, dataNascimento: '2004-01-10', titular: false, posicao: 'GOL', clube: 'Coritiba' },
+
+  // Defensores
+  { id: 4, nome: 'Vanderson', numeroCamisa: 13, dataNascimento: '2001-06-21', titular: false, posicao: 'LD', clube: 'Monaco' },
+  { id: 5, nome: 'Wesley', numeroCamisa: 2, dataNascimento: '2003-11-06', titular: false, posicao: 'LD', clube: 'Roma' },
+  { id: 6, nome: 'Douglas Santos', numeroCamisa: 6, dataNascimento: '1994-03-22', titular: false, posicao: 'LE', clube: 'Zenit' },
+  { id: 7, nome: 'Carlos Augusto', numeroCamisa: 16, dataNascimento: '1999-01-07', titular: false, posicao: 'LE', clube: 'Internazionale' },
+  { id: 8, nome: 'Gabriel Magalhães', numeroCamisa: 3, dataNascimento: '1997-12-19', titular: false, posicao: 'ZAG', clube: 'Arsenal' },
+  { id: 9, nome: 'Jair Cunha', numeroCamisa: 4, dataNascimento: '2005-03-07', titular: false, posicao: 'ZAG', clube: 'Nottingham Forest' },
+  { id: 10, nome: 'Vitor Reis', numeroCamisa: 14, dataNascimento: '2006-01-12', titular: false, posicao: 'ZAG', clube: 'Manchester City' },
+  { id: 11, nome: 'Arthur Dias', numeroCamisa: 15, dataNascimento: '2007-04-10', titular: false, posicao: 'ZAG', clube: 'Athletico-PR' },
+  { id: 12, nome: 'Jonathan Jesus', numeroCamisa: 24, dataNascimento: '2004-05-27', titular: false, posicao: 'ZAG', clube: 'Cruzeiro' },
+
+  // Meio-campistas
+  { id: 13, nome: 'Danilo Santos', numeroCamisa: 5, dataNascimento: '2001-04-29', titular: false, posicao: 'VOL', clube: 'Botafogo' },
+  { id: 14, nome: 'Bruno Guimarães', numeroCamisa: 8, dataNascimento: '1997-11-16', titular: false, posicao: 'VOL', clube: 'Arsenal' },
+  { id: 15, nome: 'André Luiz', numeroCamisa: 17, dataNascimento: '2006-06-20', titular: false, posicao: 'VOL', clube: 'Corinthians' },
+  { id: 16, nome: 'João Gomes', numeroCamisa: 18, dataNascimento: '2001-02-12', titular: false, posicao: 'VOL', clube: 'Aston Villa' },
+  { id: 17, nome: 'Marlon Gomes', numeroCamisa: 20, dataNascimento: '2003-12-14', titular: false, posicao: 'VOL', clube: 'Shakhtar Donetsk' },
+  { id: 18, nome: 'Andrey Santos', numeroCamisa: 21, dataNascimento: '2004-05-03', titular: false, posicao: 'VOL', clube: 'Manchester United' },
+  { id: 19, nome: 'Gabriel Bontempo', numeroCamisa: 25, dataNascimento: '2005-01-16', titular: false, posicao: 'MEI', clube: 'Santos' },
+
+  // Atacantes
+  { id: 20, nome: 'Vini Jr.', numeroCamisa: 7, dataNascimento: '2000-07-12', titular: false, posicao: 'PE', clube: 'Real Madrid' },
+  { id: 21, nome: 'Endrick', numeroCamisa: 9, dataNascimento: '2006-07-21', titular: false, posicao: 'ATA', clube: 'Real Madrid' },
+  { id: 22, nome: 'Raphinha', numeroCamisa: 10, dataNascimento: '1996-12-14', titular: false, posicao: 'PD', clube: 'Barcelona' },
+  { id: 23, nome: 'Estêvão', numeroCamisa: 11, dataNascimento: '2007-04-24', titular: false, posicao: 'PD', clube: 'Chelsea' },
+  { id: 24, nome: 'Alisson Santana', numeroCamisa: 19, dataNascimento: '2005-09-21', titular: false, posicao: 'PD', clube: 'Shakhtar Donetsk' },
+  { id: 25, nome: 'Allan', numeroCamisa: 22, dataNascimento: '2004-04-19', titular: false, posicao: 'MEI', clube: 'Manchester City' },
+  { id: 26, nome: 'Rayan', numeroCamisa: 26, dataNascimento: '2006-11-03', titular: false, posicao: 'ATA', clube: 'Bournemouth' },
+];
