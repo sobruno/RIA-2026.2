@@ -1,6 +1,6 @@
 import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { catchError, throwError } from 'rxjs';
+import { catchError, from, switchMap, throwError } from 'rxjs';
 import { AuthService } from './auth.service';
 
 export const authInterceptor: HttpInterceptorFn = (request, next) => {
@@ -12,8 +12,14 @@ export const authInterceptor: HttpInterceptorFn = (request, next) => {
 
   return next(requisicao).pipe(
     catchError((erro: unknown) => {
-      if (erro instanceof HttpErrorResponse && erro.status === 401 && auth.estaAutenticado()) {
-        auth.sair();
+      // 401 no login pode ser senha incorreta; o endpoint convidado não pode renovar a si mesmo.
+      const endpointDeAutenticacao = request.url.endsWith('/auth/convidado')
+        || request.url.endsWith('/auth/login');
+      if (erro instanceof HttpErrorResponse && erro.status === 401 && !endpointDeAutenticacao) {
+        // Sessão ausente/expirada: cria outro convidado e volta à escalação.
+        return from(auth.renovarSessaoConvidado()).pipe(
+          switchMap(() => throwError(() => erro)),
+        );
       }
       return throwError(() => erro);
     }),

@@ -1,13 +1,15 @@
-import { computed, Injectable, signal, inject } from '@angular/core';
+import { computed, effect, Injectable, signal, inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse, httpResource } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { Formacao } from '../dados/formacoes';
 import { Jogador } from '../models/jogador';
 import { API_URL } from './api';
+import { AuthService } from './auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class JogadorService {
   private readonly http = inject(HttpClient);
+  private readonly auth = inject(AuthService);
   readonly jogadoresResource = httpResource<Jogador[]>(() => `${API_URL}/jogadores`);
   readonly jogadores = computed(() => this.jogadoresResource.value() ?? []);
   readonly escala = signal<Record<string, number>>({});
@@ -23,6 +25,21 @@ export class JogadorService {
   });
   readonly erro = signal('');
   readonly salvando = signal(false);
+
+  constructor() {
+    let tokenAnterior = this.auth.token();
+    effect(() => {
+      const tokenAtual = this.auth.token();
+      if (tokenAtual === tokenAnterior) return;
+
+      tokenAnterior = tokenAtual;
+      this.limparEscalacao();
+      this.formacaoEscolhida.set('4-3-3');
+      this.jogadorSelecionado.set(null);
+      // O novo token representa outro elenco; busca os dados iniciais dessa sessão.
+      if (tokenAtual) this.jogadoresResource.reload();
+    });
+  }
 
   async criar(jogador: Omit<Jogador, 'id' | 'titular'>): Promise<void> {
     await this.gravar(() => firstValueFrom(this.http.post(`${API_URL}/jogadores`, jogador)));

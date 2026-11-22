@@ -17,7 +17,7 @@ interface Credenciais {
       <section class="w-full max-w-md rounded-lg border border-[#dfe6df] bg-white p-6 shadow-sm sm:p-8">
         <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#547060]">Comissão técnica</p>
         <h1 class="mt-2 text-3xl font-bold">Entrar na escalação</h1>
-        <p class="mt-2 text-sm text-[#65736a]">Use sua conta para consultar e administrar os jogadores.</p>
+        <p class="mt-2 text-sm text-[#65736a]">Entre com uma conta ou crie uma sessão temporária para testar a escalação.</p>
         <form class="mt-6 space-y-4" novalidate (submit)="entrar($event)">
           <label class="flex flex-col gap-1.5 text-sm font-semibold">E-mail
             <input class="w-full rounded border border-[#cbd6cb] px-3 py-2" type="email" autocomplete="username" [formField]="loginForm.email" />
@@ -34,6 +34,9 @@ interface Credenciais {
           @if (erro()) { <p role="alert" class="rounded bg-red-50 px-3 py-2 text-sm text-red-800">{{ erro() }}</p> }
           <p-button type="submit" label="Entrar" [disabled]="carregando()" />
         </form>
+        <div class="mt-4 border-t border-[#e2e8e1] pt-4">
+          <p-button type="button" label="Entrar como convidado" [outlined]="true" [disabled]="carregando()" (onClick)="entrarComoConvidado()" />
+        </div>
       </section>
     </main>
   `,
@@ -63,5 +66,15 @@ export class LoginComponent {
         }
       },
     });
+  }
+
+  entrarComoConvidado(): void {
+    this.erro.set('');
+    this.carregando.set(true);
+    void this.auth.entrarComoConvidado()
+      .catch((erro: unknown) => {
+        this.erro.set(erro instanceof Error ? erro.message : 'Não foi possível iniciar a sessão convidada.');
+      })
+      .finally(() => this.carregando.set(false));
   }
 }
