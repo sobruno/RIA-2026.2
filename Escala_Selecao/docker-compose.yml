@@ -10,6 +10,8 @@ services:
       FRONTEND_URL: "http://localhost:4200"
       # Chave de desenvolvimento para uso local; defina JWT_SECRET fora do compose em produção.
       JWT_SECRET: "${JWT_SECRET:-docker-compose-local-only-change-me}"
+    volumes:
+      - ./backend/data:/app/data
     healthcheck:
       test:
         - CMD
